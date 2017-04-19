@@ -1,26 +1,18 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { View, Text } from "react-native";
 import { connect } from "react-redux";
+import { styles } from "../styles/core";
 
-class FirstPage extends React.Component {
+import LoadingPage from "./loading";
+import LoadedPage from "./loaded";
+
+class WelcomePage extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>{this.props.User.get("email")}</Text>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        {this.props.Content.get("isLoaded") ? <LoadedPage /> : <LoadingPage />}
       </View>
     );
   }
 }
-export default connect(state => state)(FirstPage);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
+export default connect(state => state)(WelcomePage);
