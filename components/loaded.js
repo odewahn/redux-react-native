@@ -1,16 +1,16 @@
 import React from "react";
 import { Text, View } from "react-native";
 import { connect } from "react-redux";
-import GetContentBtn from "./get-content-button";
 import { styles } from "../styles/core";
 
 class LoadedPage extends React.Component {
   render() {
+    var posts = this.props.Content.get("posts").map(p => {
+      return <Text>{p.get("title")}</Text>;
+    });
     return (
       <View style={styles.container}>
-        <Text>
-          You have data, my friend!
-        </Text>
+        {posts}
       </View>
     );
   }

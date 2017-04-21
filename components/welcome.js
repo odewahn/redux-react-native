@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { styles } from "../styles/core";
 
 import LoadingPage from "./loading";
-import LoadedPage from "./loaded";
+import LoadedPage from "./listview";
 
 class WelcomePage extends React.Component {
   render() {

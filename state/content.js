@@ -38,11 +38,6 @@ export function getPosts() {
       .then(data => {
         dispatch(setContentField("posts", fromJS(data.posts.blocks)));
         dispatch(setContentField("isLoaded", true));
-      })
-      .catch(err => {
-        err.text().then(msg => {
-          console.log("ERROR:", msg);
-        });
       });
   };
 }
